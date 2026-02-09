@@ -8,12 +8,11 @@ services:
       - "3000:3000"
     env_file:
       - .env
-    volumes:
-      - .:/usr/src/app
     depends_on:
       - postgres
       - redis
-    command: npm run dev
+    restart: always
+    command: npm run start
 
   postgres:
     image: postgres:15
@@ -31,6 +30,7 @@ services:
   redis:
     image: redis:7
     container_name: chatbot_redis
+    restart: always
     ports:
       - "6379:6379"
 

@@ -1,0 +1,8 @@
+services:
+  app:
+    command: npm run dev
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      NODE_ENV: development
